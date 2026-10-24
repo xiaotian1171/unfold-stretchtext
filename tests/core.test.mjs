@@ -22,6 +22,7 @@ test("target lengths make shrink smaller and keep grow bounded", () => {
   assert.ok(Core.targetWords("shrink", passage) <= 180);
   assert.ok(Core.targetWords("grow", passage) <= 420);
   assert.ok(Core.estimateMaxTokens("grow", passage) <= 1100);
+  assert.ok(Core.estimateMaxTokens("grow", "chosen words") >= 320);
 });
 
 test("prompts encode stretchtext behavior and JSON-only output", () => {
@@ -77,6 +78,7 @@ test("manifest references real files and keeps API host access narrow", () => {
 test("key handling stays in the background and generated DOM is text-only", () => {
   assert.match(background, /UNFOLD_OPEN_OPTIONS/);
   assert.match(background, /Authorization: `Bearer \$\{auth\.apiKey\}`/);
+  assert.match(background, /reasoning_effort:\s*"none"/);
   assert.doesNotMatch(content, /Authorization|apiKey/);
   assert.match(content, /textContent = resultText/);
   assert.doesNotMatch(content, /innerHTML\s*=\s*resultText/);

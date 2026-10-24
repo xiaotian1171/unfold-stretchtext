@@ -287,6 +287,7 @@ async function transform(message) {
       pageTitle: message.pageTitle || "",
     }),
     temperature: 0.35,
+    reasoning_effort: "none",
     max_tokens: Core.estimateMaxTokens(action, validation.text, depth),
   };
 

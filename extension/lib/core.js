@@ -51,7 +51,9 @@
   }
 
   function estimateMaxTokens(action, text, depth = 0) {
-    return Math.max(96, Math.min(1100, Math.ceil(targetWords(action, text, depth) * 1.55)));
+    // Reasoning-capable models spend part of max_tokens before visible text.
+    // Keep enough headroom that a short JSON answer is not truncated.
+    return Math.max(320, Math.min(1400, Math.ceil(targetWords(action, text, depth) * 1.55) + 192));
   }
 
   function buildMessages({ action, text, context = "", depth = 0, insertionMode = "inline", pageTitle = "" } = {}) {
