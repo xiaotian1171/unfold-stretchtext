@@ -11,7 +11,7 @@ const Core = globalThis.UnfoldCore;
 
 // Publishable Pollinations App Key used only to attribute Device Flow sign-ins.
 // It is not a secret. Fill this after creating the Unfold App Key.
-const UNFOLD_APP_KEY = "";
+const UNFOLD_APP_KEY = "pk_UpkWwnVCGEsvwI0W";
 
 const GEN_CHAT_URL = "https://gen.pollinations.ai/v1/chat/completions";
 const DEVICE_CODE_URL = "https://enter.pollinations.ai/api/device/code";
