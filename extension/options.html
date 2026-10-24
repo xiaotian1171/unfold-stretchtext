@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unfold Settings</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="options">
+  <main class="options-shell">
+    <header class="brand-row">
+      <div class="brand-mark" aria-hidden="true">✦</div>
+      <div>
+        <h1>Unfold Settings</h1>
+        <p>Stretchtext that grows where you want more—and gets out of the way when you don't.</p>
+      </div>
+    </header>
+
+    <section class="card" aria-labelledby="connectionTitle">
+      <h2 id="connectionTitle">Connect your Pollen</h2>
+      <p class="muted">Unfold uses the Pollinations Device Flow for extensions. You approve a scoped, revocable key in your browser; Unfold's developer never pays for or receives your reading.</p>
+      <p id="connectionStatus" class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="connectionText">Checking…</span></p>
+
+      <div class="button-row">
+        <button id="startDeviceButton" class="button button-primary" type="button">Connect with Pollinations</button>
+        <button id="whoamiButton" class="button" type="button">Verify connection</button>
+        <button id="disconnectButton" class="button button-danger" type="button">Disconnect</button>
+      </div>
+
+      <div id="deviceBox" class="device-box hidden">
+        <strong>Approve Unfold in Pollinations</strong>
+        <span id="deviceCode" class="device-code">----</span>
+        <p id="deviceHint" class="small muted">Open the approval page, confirm the code, then return here. Unfold is waiting…</p>
+        <div class="button-row">
+          <a id="deviceLink" class="button button-primary" href="https://enter.pollinations.ai/device" target="_blank" rel="noopener noreferrer">Open approval page</a>
+          <button id="pollNowButton" class="button" type="button">Check now</button>
+        </div>
+      </div>
+
+      <p id="connectionMessage" class="message" role="status"></p>
+
+      <hr>
+      <h3>Use your own API key</h3>
+      <p class="muted">A fallback for reviewers and power users. The key is stored in extension-local storage and is read only by Unfold's background worker. It is never injected into web pages.</p>
+      <label class="field-label" for="manualApiKey">Pollinations secret key</label>
+      <div class="inline-control">
+        <input id="manualApiKey" class="text-input" type="password" autocomplete="off" spellcheck="false" placeholder="sk_…">
+        <button id="saveManualKeyButton" class="button" type="button">Save key</button>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="readingTitle">
+      <h2 id="readingTitle">Reading behavior</h2>
+      <form id="settingsForm">
+        <div class="form-grid">
+          <div>
+            <label class="field-label" for="modelSelect">Model</label>
+            <select id="modelSelect" class="text-input">
+              <option value="deepseek/deepseek-v4.1-flash">DeepSeek V4.1 Flash — balanced default</option>
+              <option value="openai/gpt-5.4-nano">GPT-5.4 Nano — fast all-rounder</option>
+              <option value="z-ai/glm-5.3-flash">GLM-5.3 Flash — low-cost alternative</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="customModel">Custom model ID (optional)</label>
+            <input id="customModel" class="text-input" type="text" placeholder="Overrides the menu when filled">
+          </div>
+          <div>
+            <label class="field-label" for="maxDepth">Maximum stretch depth</label>
+            <input id="maxDepth" class="text-input" type="number" min="0" max="5" step="1">
+          </div>
+          <div>
+            <label class="check-row">
+              <input id="cacheEnabled" type="checkbox">
+              <span>Cache identical transformations locally to avoid paying twice.</span>
+            </label>
+          </div>
+        </div>
+        <div class="button-row">
+          <button class="button button-primary" type="submit">Save settings</button>
+          <button id="clearCacheButton" class="button" type="button">Clear cached results</button>
+        </div>
+        <p id="settingsMessage" class="message" role="status"></p>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="privacyTitle">
+      <h2 id="privacyTitle">Privacy by design</h2>
+      <ul class="privacy-list">
+        <li>Unfold observes selections locally. Nothing is sent until you choose Grow, Shrink or Explain.</li>
+        <li>Only the selected passage and a limited surrounding context are sent to Pollinations for that one transformation.</li>
+        <li>Your API key lives in the extension background. Content scripts and web pages cannot read it.</li>
+        <li>Generated passages are visibly marked, collapsible and removable. “Restore page” removes them and reveals originals.</li>
+        <li>Unfold does not run inside text fields and does not include analytics.</li>
+      </ul>
+    </section>
+
+    <p class="footer-note">Unfold is an independent community extension for Pollinations Quest <a href="https://github.com/pollinations/pollinations/issues/17998" target="_blank" rel="noopener noreferrer">#17998</a>.</p>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "manifest_version": 3,
+  "name": "Unfold — Stretchtext for the Web",
+  "short_name": "Unfold",
+  "version": "0.1.0",
+  "description": "Select any passage and grow it, shrink it, or explain it in place with your own Pollen.",
+  "homepage_url": "https://xiaotian1171.github.io/unfold-stretchtext/",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Unfold selected text",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://gen.pollinations.ai/*",
+    "https://enter.pollinations.ai/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "lib/core.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "commands": {
+    "grow-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+G",
+        "mac": "Command+Shift+G"
+      },
+      "description": "Grow the selected text in place"
+    },
+    "shrink-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Shrink the selected text to a gist"
+    },
+    "restore-page": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "Remove every Unfold insertion from this page"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "unfold@xiaotian1171.github.io",
+      "strict_min_version": "115.0"
+    }
+  }
+}

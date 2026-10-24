@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unfold</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="popup">
+  <main class="shell">
+    <header class="brand-row">
+      <div class="brand-mark" aria-hidden="true">✦</div>
+      <div>
+        <h1>Unfold</h1>
+        <p>Stretchtext for any web page</p>
+      </div>
+    </header>
+
+    <p id="statusLine" class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="statusText">Checking connection…</span></p>
+
+    <section class="action-grid" aria-label="Selection actions">
+      <button class="action-card" type="button" data-command="grow">
+        <span class="action-icon">↗</span>
+        <strong>Grow</strong>
+        <span>Add the missing layer right where you are reading.</span>
+      </button>
+      <button class="action-card" type="button" data-command="shrink">
+        <span class="action-icon">↙</span>
+        <strong>Shrink</strong>
+        <span>Compress a passage while keeping the original one click away.</span>
+      </button>
+      <button class="action-card" type="button" data-command="explain">
+        <span class="action-icon">?</span>
+        <strong>Explain</strong>
+        <span>Gloss a term using the context around it.</span>
+      </button>
+      <button class="action-card" type="button" data-command="restore">
+        <span class="action-icon">↺</span>
+        <strong>Restore</strong>
+        <span>Remove every Unfold insertion from this page.</span>
+      </button>
+    </section>
+
+    <p id="popupMessage" class="message" role="status">Select text on the page, then choose an action.</p>
+
+    <div class="button-row">
+      <button id="optionsButton" class="button button-primary button-wide" type="button">Connect / Settings</button>
+    </div>
+
+    <p class="footer-note">Your key stays in the extension background. Web pages never receive it.</p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

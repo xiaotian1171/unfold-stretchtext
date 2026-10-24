@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unfold — Stretchtext for the Web</title>
+  <meta name="description" content="Unfold is a browser extension that grows, shrinks and explains selected web text in place, powered by your own Pollen.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%237457ff' d='M32 3 39 25 61 32 39 39 32 61 25 39 3 32 25 25Z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Unfold home">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>Unfold</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#demo">Demo</a>
+      <a href="#install">Install</a>
+      <a href="#privacy">Privacy</a>
+      <a href="https://github.com/xiaotian1171/unfold-stretchtext">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Stretchtext for any web page · Bring your own Pollen</p>
+        <h1>Read less. Understand more—right where the words are.</h1>
+        <p class="lede">Select a dense sentence and <strong>Grow</strong> it. Select a wall of text and <strong>Shrink</strong> it. Select a term and <strong>Explain</strong> it. Unfold inserts the result into the page, visibly marks it, and can restore the original at any time.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/xiaotian1171/unfold-stretchtext/releases/latest/download/unfold-stretchtext-v0.1.0.zip">Download extension ZIP</a>
+          <a class="button" href="#demo">Try the interaction</a>
+        </div>
+        <p class="fine-print">Chromium and Firefox developer/unpacked install. Generation is paid with the reader's own Pollinations balance.</p>
+      </div>
+      <figure class="hero-shot">
+        <img src="assets/screenshot.png" alt="Unfold expanding a selected passage in a web article" width="1280" height="720">
+        <figcaption>Generated text stays in the reading flow—not in a separate chat tab.</figcaption>
+      </figure>
+    </section>
+
+    <section class="feature-grid" aria-label="Unfold features">
+      <article>
+        <span class="feature-icon">↗</span>
+        <h2>Grow in place</h2>
+        <p>Expand a phrase once, then expand part of the expansion again, up to your chosen depth.</p>
+      </article>
+      <article>
+        <span class="feature-icon">↙</span>
+        <h2>Shrink without losing the source</h2>
+        <p>Get the gist first. Inline shrink keeps the original behind one toggle; long-passage cards can hide or reveal it.</p>
+      </article>
+      <article>
+        <span class="feature-icon">?</span>
+        <h2>Explain in context</h2>
+        <p>Glosses use the surrounding passage to choose the intended sense, and admit it when context is not enough.</p>
+      </article>
+      <article>
+        <span class="feature-icon">⌂</span>
+        <h2>Your key never enters the page</h2>
+        <p>Only Unfold's background worker can read the connected key. Content scripts receive finished text, never credentials.</p>
+      </article>
+    </section>
+
+    <section id="demo" class="demo-section" aria-labelledby="demoTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Interactive concept demo</p>
+        <h2 id="demoTitle">Feel the stretch</h2>
+        <p>This page demo uses canned text and makes no API call. In the installed extension, the same controls appear beside real selections on article pages and call Pollinations with your connected wallet.</p>
+      </div>
+
+      <div class="demo-card">
+        <div class="demo-toolbar" role="toolbar" aria-label="Demo controls">
+          <span>✦ Unfold demo</span>
+          <button type="button" data-demo-action="grow">Grow</button>
+          <button type="button" data-demo-action="shrink">Shrink</button>
+          <button type="button" data-demo-action="explain">Explain</button>
+          <button type="button" data-demo-action="restore">Restore</button>
+        </div>
+        <article id="demoArticle" class="demo-article">
+          <h3>Why stretchtext waited fifty years</h3>
+          <p><span id="demoLead">In 1967, Ted Nelson imagined <mark>stretchtext</mark>: prose that could grow where a reader wanted more detail and shrink back where they did not.</span> The idea was elegant, but writing every level of every passage by hand made it impractical for ordinary documents.</p>
+          <p>Generated text changes the economics. A reader no longer needs the author to predict every question in advance; the missing layer can be produced at the moment of curiosity, while the original remains available for checking.</p>
+        </article>
+        <p id="demoStatus" class="demo-status" role="status">Choose Grow, Shrink or Explain.</p>
+      </div>
+    </section>
+
+    <section id="install" class="install-section" aria-labelledby="installTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Install</p>
+        <h2 id="installTitle">Load Unfold in two minutes</h2>
+      </div>
+      <div class="install-grid">
+        <article>
+          <h3>Chrome / Edge / Brave</h3>
+          <ol>
+            <li>Download and unzip <a href="https://github.com/xiaotian1171/unfold-stretchtext/releases/latest/download/unfold-stretchtext-v0.1.0.zip">unfold-stretchtext-v0.1.0.zip</a>.</li>
+            <li>Open <code>chrome://extensions</code> (or the equivalent extensions page).</li>
+            <li>Enable Developer mode, choose <strong>Load unpacked</strong>, and select the unzipped folder.</li>
+            <li>Open Unfold Settings and connect Pollinations.</li>
+          </ol>
+        </article>
+        <article>
+          <h3>Firefox</h3>
+          <ol>
+            <li>Download and unzip the release.</li>
+            <li>Open <code>about:debugging#/runtime/this-firefox</code>.</li>
+            <li>Choose <strong>Load Temporary Add-on</strong> and select <code>manifest.json</code>.</li>
+            <li>Open Unfold Settings and connect Pollinations. Temporary add-ons are removed when Firefox restarts.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section id="privacy" class="privacy-section" aria-labelledby="privacyTitle">
+      <div>
+        <p class="eyebrow">Privacy</p>
+        <h2 id="privacyTitle">Nothing leaves the page until you ask.</h2>
+      </div>
+      <ul>
+        <li><strong>Selection-first:</strong> Unfold observes selections locally and sends text only after Grow, Shrink or Explain.</li>
+        <li><strong>Limited payload:</strong> only the selected passage and a bounded surrounding context are sent to Pollinations.</li>
+        <li><strong>Background-only key:</strong> web pages and content scripts never receive your API key.</li>
+        <li><strong>Reversible:</strong> inserted passages are marked and removable; Restore reveals original text.</li>
+        <li><strong>No analytics:</strong> Unfold includes no tracking or third-party analytics.</li>
+      </ul>
+    </section>
+
+    <section class="faq" aria-labelledby="faqTitle">
+      <h2 id="faqTitle">Questions</h2>
+      <details>
+        <summary>Who pays for generation?</summary>
+        <p>The reader. Unfold uses Pollinations BYOP/Device Flow or a key the reader supplies, so each transformation is charged to that reader's Pollen balance.</p>
+      </details>
+      <details>
+        <summary>Does Unfold rewrite the whole page automatically?</summary>
+        <p>No. That would be expensive and invasive. It works passage by passage, at the exact point where the reader asks for more or less.</p>
+      </details>
+      <details>
+        <summary>What if the generated layer is wrong?</summary>
+        <p>It is visibly marked, collapsible and removable. Shrink keeps the original one click away, and Unfold prompts models not to invent citations or facts unsupported by the supplied context.</p>
+      </details>
+      <details>
+        <summary>Which model does it use?</summary>
+        <p>The default is DeepSeek V4.1 Flash, with GPT-5.4 Nano and GLM-5.3 Flash presets plus a custom Pollinations model ID field.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p>Unfold is an independent community extension for Pollinations Quest <a href="https://github.com/pollinations/pollinations/issues/17998">#17998</a>.</p>
+    <a href="https://pollinations.ai/?ref=badge">
+      <img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai">
+    </a>
+  </footer>
+
+  <script src="demo.js"></script>
+</body>
+</html>

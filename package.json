@@ -1,0 +1,12 @@
+{
+  "name": "unfold-stretchtext",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A browser extension that grows, shrinks and explains selected web text in place with the reader's own Pollen.",
+  "scripts": {
+    "test": "node --check extension/lib/core.js && node --check extension/background.js && node --check extension/content.js && node --check extension/popup.js && node --check extension/options.js && node --check docs/demo.js && node --test tests/*.test.mjs",
+    "package": "python3 scripts/package.py",
+    "serve:site": "python3 -m http.server 4174 --bind 127.0.0.1 --directory docs"
+  },
+  "license": "MIT"
+}
